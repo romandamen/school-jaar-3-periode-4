@@ -31,7 +31,7 @@ responses = {
         "gaat het goed?": ["Ja hoor.","Niet echt."],
         "hoe gaat het met het leven?": ["Het gaat wel lekker.","Prima.","Niet echt goed.","Slecht."],
         "thx": ["Geen probleem."],
-        "hoelaat is het?": ["Het is " + time.strftime("%H:%M:%S")],
+        "hoelaat is het?": ["Het is " + time.strftime("%H:%M:%S").],
         "bedankt": ["Geen probleem."],
         "thx": ["Geen probleem."],
         "dankjewel": ["Geen probleem."],
