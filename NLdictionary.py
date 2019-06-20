@@ -7,14 +7,14 @@ from termcolor import colored, cprint
 import sys
 import NLdictionary as NL
 responses = {
-        "Hoe heet je?": ["Ik ben Spreekbot."],
+        "hoe heet je?": ["Ik ben Spreekbot."],
         "wat voor weer is het?": ["Het weer is vandaag wel goed.","Niet zo goed."],
         "wat is het weer?": ["Het weer is vandaag wel goed.","Niet zo goed."],
         "hoe is het weer?": ["Het weer is vandaag wel goed.","Niet zo goed."],
         "wat voor weer is het vandaag?": ["Het weer is vandaag wel goed.","Niet zo goed."],
-        "steen": ["Steen!, Gelijkspel.","Papier!, ik win.","Schaar!, goed gespeeld. " + naam],
-        "papier": ["Steen!, goed gespeeld. " + naam,"Papier!, gelijkspel.","Schaar!, ik win."],
-        "schaar": ["Steen!, ik win.","Papier!, goed gespeeld. " + naam,"Schaar!, gelijkspel."],
+        "steen": ["Steen, Gelijkspel!","Papier, ik win!","Schaar, goed gespeeld!" + naam],
+        "papier": ["Steen, goed gespeeld! " + naam,"Papier, gelijkspel!","Schaar, ik win!"],
+        "schaar": ["Steen, ik win!","Papier, goed gespeeld!." + naam,"Schaar, gelijkspel!"],
         "gooi een muntje": ["Kop!","Munt!"],
         "gooi een munt": ["Kop!","Munt!"],
         "hoi": ["Hey " + naam + "!","Hey!"],
@@ -31,7 +31,7 @@ responses = {
         "gaat het goed?": ["Ja hoor.","Niet echt."],
         "hoe gaat het met het leven?": ["Het gaat wel lekker.","Prima.","Niet echt goed.","Slecht."],
         "thx": ["Geen probleem."],
-        "hoelaat is het?": [time.strftime("%H:%M:%S")],
+        "hoelaat is het?": ["Het is " + time.strftime("%H:%M:%S")],
         "bedankt": ["Geen probleem."],
         "thx": ["Geen probleem."],
         "dankjewel": ["Geen probleem."],
