@@ -56,7 +56,17 @@ if language == "english":
             return re.sub('my', 'your', phrase)
         else:
             return phrase
-    
+
+    def gevoelens(phrase):
+        pattern = 'im feeling (.*)'
+        pattern2 = 'its going (.*)'
+        
+        match = re.search(pattern, phrase)
+        match = re.search(pattern2, phrase)
+        if match:
+            return match.group(1)
+        else:
+            return phrase
 if language == "dutch":
     def naam_begin(name):
         global naam
