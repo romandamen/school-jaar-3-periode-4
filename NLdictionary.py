@@ -43,6 +43,6 @@ responses = {
         "doei": ["Doei!", "Later!", "Fijne dag verder."],
         "statement":[
             'Hmm.'],
-        "question": ["wat?"],
-        "gesloten": ["ja","nee"],
-        "mening": ["goed","slecht","nooit echt over nagedacht","apart","idk"]}
+        "question": ["Wat?"],
+        "gesloten": ["Ja.","Nee."],
+        "mening": ["Goed.","Slecht.","Nooit echt over nagedacht.","Apart."]}
