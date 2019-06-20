@@ -7,17 +7,17 @@ import sys
 import NLdictionary as NL
 import USdictionary as US
 import re
-language = input("which language do you speak: dutch or english? \n")
+language = input("Which language do you speak: dutch or english? \n")
 if language == "dutch" or language == "english":
     print("\n")
 else:
-    print("i can't speak that language.")
-    language = input("which language do you speak: dutch or english? \n")
+    print("I can't speak that language.")
+    language = input("Which language do you speak: dutch or english? \n")
     if language == "dutch" or language == "english":
         print("\n")
     else:
-        print("i can't speak that language")
-        language = input("which language do you speak: dutch or english? \n")
+        print("i can't speak that language.")
+        language = input("Which language do you speak: dutch or english? \n")
 
 
 
@@ -66,15 +66,15 @@ if language == "dutch":
         if letters >= 15:
             print(" ")
             print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
-            delay_print("dat lijkt mij een beetje lang",0.05)
-            delay_print("wie ben je echt?",0.05)
+            delay_print("Dat lijkt mij een beetje lang.",0.05)
+            delay_print("Wie ben je echt?",0.05)
             print(" ")
             naam = input('')
             naam_begin(naam)
         if letters <= 15:
             print(" ")
             print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
-            delay_print("ohhh tuurlijk",0.05)        
+            delay_print("Ohhh tuurlijk.",0.05)        
     def tijdprint():
         tijd = time.strftime("%H:%M:%S")
         color.write(tijd,"STRING")
@@ -104,7 +104,7 @@ if language == "english":
         if letters >= 15:
             print(" ")
             print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
-            delay_print("That looks a little bit too long for me",0.05)
+            delay_print("That looks a little bit too long for me.",0.05)
             delay_print("Who are you really?",0.05)
             print(" ")
             naam = input('')
@@ -112,7 +112,7 @@ if language == "english":
         if letters <= 15:
             print(" ")
             print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
-            delay_print("oh ofcourse",0.05)
+            delay_print("Oh ofcourse.",0.05)
             
     def tijdprint():
         tijd = time.strftime("%I:%M:%S %p")
@@ -233,7 +233,7 @@ if language == "english":
                 if message.startswith("why?"):
                     print(" ")
                     print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
-                    delay_print("not really a reason",0.05)
+                    delay_print("Not really a reason.",0.05)
                 if message.startswith("what percentage"):
                     pass
                     #E= random.randint(0, 100)
