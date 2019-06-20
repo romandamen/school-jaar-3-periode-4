@@ -342,11 +342,17 @@ while True:
             beurt = 1
             print(" ")
             color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
-            respond(input(' ').lower())
+            antwoord = input(' ').lower()
+            if antwoord.endswith('.'):
+                antwoord = antwoord[:-1]
+            respond(antwoord)
             
     if language == "english":
         if beurt == 0:
             beurt = 1
             print(" ")
             color.write(time.strftime("%I:%M:%S %p") + ", " + naam + ':',"STRING")
-            respond(input(' ').lower())
+            antwoord = input(' ').lower()
+            if antwoord.endswith('.'):
+                antwoord = antwoord[:-1]
+            respond(antwoord)
