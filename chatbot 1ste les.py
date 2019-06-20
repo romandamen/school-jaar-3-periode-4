@@ -7,6 +7,7 @@ import sys
 import NLdictionary as NL
 import USdictionary as US
 import re
+
 language = input("Which language do you speak: dutch or english? \n")
 if language == "dutch" or language == "english":
     print("\n")
@@ -309,11 +310,11 @@ while True:
             beurt = 1
             print(" ")
             color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
-            respond(input(' '))
+            respond(input(' ').lower())
             
     if language == "english":
         if beurt == 0:
             beurt = 1
             print(" ")
             color.write(time.strftime("%I:%M:%S %p") + ", " + naam + ':',"STRING")
-            respond(input(' '))
+            respond(input(' ').lower())
