@@ -65,7 +65,7 @@ if language == "dutch":
             letters+=1
         if letters >= 15:
             print(" ")
-            print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
+            print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
             delay_print("Dat lijkt mij een beetje lang.",0.05)
             delay_print("Wie ben je echt?",0.05)
             print(" ")
@@ -73,7 +73,7 @@ if language == "dutch":
             naam_begin(naam)
         if letters <= 15:
             print(" ")
-            print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
+            print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
             delay_print("Ohhh tuurlijk.",0.05)        
     def tijdprint():
         tijd = time.strftime("%H:%M:%S")
@@ -103,7 +103,7 @@ if language == "english":
             letters+=1
         if letters >= 15:
             print(" ")
-            print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
+            print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
             delay_print("That looks a little bit too long for me.",0.05)
             delay_print("Who are you really?",0.05)
             print(" ")
@@ -111,7 +111,7 @@ if language == "english":
             naam_begin(naam)
         if letters <= 15:
             print(" ")
-            print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
+            print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
             delay_print("Oh ofcourse.",0.05)
             
     def tijdprint():
@@ -164,7 +164,7 @@ if language == "dutch":
             if not message in NL.responses:
                 if message.startswith("waarom?"):
                     print(" ")
-                    print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
+                    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                     delay_print("gewoon",0.05)
                 if message.startswith("hoeveel procent"):
                     pass
@@ -172,11 +172,11 @@ if language == "dutch":
                     #delay_print(time.strftime("%H:%M:%S") + ", " + "spreekbot:" + ,0.05)
                 if message.startswith("wat vind je van") or message.startswith ("wat vind jij van") or message.startswith("wat is jouw mening over"):
                     print(" ")
-                    print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
+                    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                     delay_print(random.choice(NL.responses["mening"]),0.05)
                 if message.startswith("ben") or message.startswith("kan") or message.startswith("hou") or message.startswith("wil") or message.startswith("doe") or message.startswith("gaat") or message.startswith("heb") or message.startswith("is") or message.startswith("moet") or message.startswith("zal"):
                     print(" ")
-                    print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
+                    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                     delay_print(random.choice(NL.responses["gesloten"]),0.05)    
                 else:
                     if message.startswith("wat vind je van") or message.startswith ("wat vind jij van") or message.startswith("wat is jouw mening over"):
@@ -184,43 +184,43 @@ if language == "dutch":
                     else:
                         if not message.startswith('waarom'):
                             print(" ")
-                            print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
+                            print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                             delay_print(random.choice(NL.responses["question"]),0.05)
         if message in NL.responses:
             if not message == "matrix":
                 print(" ")
-                print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
+                print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                 delay_print(random.choice(NL.responses[message]),0.05)
             else:
                 print(" ")
-                print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
+                print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                 delay_print(random.choice(NL.responses[message]),0.000)
         if not message.endswith("?"):
             if not message in NL.responses:
                 print(" ")
-                print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
+                print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                 delay_print(random.choice(NL.responses["statement"]),0.05)
                 
     color.write("|||4G                                  " + time.strftime("%H:%M") + "                                60%","BUILTIN")
     color.write("  _____________________________________________________________________________ \n","BUILTIN")
-    color.write("|spreekbot                                                                    |\n","BUILTIN")
-    color.write("|tik voor contactinformatie                                                   |\n","BUILTIN")
+    color.write("|Spreekbot                                                                    |\n","BUILTIN")
+    color.write("|Tik voor contactinformatie.                                                  |\n","BUILTIN")
     color.write("|_____________________________________________________________________________|\n","BUILTIN")
     print(" ")
-    print(time.strftime("%H:%M:%S") + ", " + "spreekbot")
-    delay_print("heb een nieuwe telefoon, wie is dit?",0.05)
+    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
+    delay_print("Heb een nieuwe telefoon, wie is dit?",0.05)
     print(" ")
     naam= input('')
     naam_begin(naam)
     print(" ")
-    print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
-    delay_print("hoe gaat het " + naam + "?",0.05)
+    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+    delay_print("Hoe gaat het " + naam + "?",0.05)
     print("\n")
     color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
     gevoel = str(input("  "))
     print(" ")
-    print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
-    delay_print("waarom voel je je {}?".format(gevoelens(gevoel)),0.05)
+    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+    delay_print("Waarom voel je je {}?".format(gevoelens(gevoel)),0.05)
     
 if language == "english":
     def respond(message):
@@ -232,19 +232,19 @@ if language == "english":
             if not message in US.responses:
                 if message.startswith("why?"):
                     print(" ")
-                    print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
+                    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                     delay_print("Not really a reason.",0.05)
                 if message.startswith("what percentage"):
                     pass
                     #E= random.randint(0, 100)
-                    #delay_print(time.strftime("%I:%M:%S %p") + ", " + "spreekbot:" + ,0.05)
+                    #delay_print(time.strftime("%I:%M:%S %p") + ", " + "Spreekbot:" + ,0.05)
                 if message.startswith("what are your thoughts on") or message.startswith ("what do you think of") or message.startswith("what is your opinion about") or message.startswith("What is your opinion on"):
                     print(" ")
-                    print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
+                    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                     delay_print(random.choice(US.responses["meaning"]),0.05)
                 if message.startswith("are") or message.startswith("can") or message.startswith("do you like") or message.startswith("Do you want") or message.startswith("do") or message.startswith("is it going") or message.startswith("do you have") or message.startswith("is"):
                     print(" ")
-                    print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
+                    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                     delay_print(random.choice(US.responses["closed"]),0.05)    
                 else:
                     if message.startswith("what do you think of") or message.startswith("what is your opinion about"):
@@ -252,37 +252,37 @@ if language == "english":
                     else:
                         if not message.startswith('why'):
                             print(" ")
-                            print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
+                            print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                             delay_print(random.choice(US.responses["question"]),0.05)
         if message in US.responses:
             if not message == "matrix":
                 print(" ")
-                print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
+                print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                 delay_print(random.choice(US.responses[message]),0.05)
             else:
                 print(" ")
-                print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
+                print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                 delay_print(random.choice(US.responses[message]),0.000)
         if not message.endswith("?"):
             if not message in US.responses:
                 print(" ")
-                print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
+                print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                 delay_print(random.choice(US.responses["statement"]),0.05)
                     
     color.write("|||4G                                  " + time.strftime("%H:%M") + "                                60%","BUILTIN")
     color.write("  _____________________________________________________________________________ \n","BUILTIN")
-    color.write("|chatbot                                                                      |\n","BUILTIN")
-    color.write("|tap for contactinformation                                                   |\n","BUILTIN")
+    color.write("|Chatbot                                                                      |\n","BUILTIN")
+    color.write("|Tap for contactinformation.                                                  |\n","BUILTIN")
     color.write("|_____________________________________________________________________________|\n","BUILTIN")
     print(" ")
-    print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
-    delay_print("have a new phone, who is this?",0.05)
+    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+    delay_print("Have a new phone, who is this?",0.05)
     print(" ")
     naam= input('')
     naam_begin(naam)
     print(" ")
-    print(time.strftime("%I:%M:%S %p") + ", " + "chatbot")
-    delay_print("how are you feeling" + naam + "?",0.05)
+    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+    delay_print("How are you feeling" + naam + "?",0.05)
     print("\n")
     color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
     print(gevoelens(input(" ")))
