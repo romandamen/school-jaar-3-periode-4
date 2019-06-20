@@ -295,7 +295,11 @@ if language == "english":
     delay_print("How are you feeling" + naam + "?",0.05)
     print("\n")
     color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
-    print(gevoelens(input(" ")))
+    gevoel = str(input("  "))
+    print(" ")
+    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+    delay_print("Why are you feeling {}?".format(gevoelens(gevoel)),0.05)
+    
 
 
 
