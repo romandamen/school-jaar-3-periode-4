@@ -7,7 +7,7 @@ from termcolor import colored, cprint
 import sys
 import NLdictionary as NL
 responses = {
-        "hoe heet je?": ["mijn maker heeft me geen naam gegeven.","mijn naam weet ik niet maar jij heet " + naam,"stalker"],
+        "Hoe heet je?": ["Mijn maker heeft me geen naam gegeven.","mijn naam weet ik niet maar jij heet " + naam,"stalker"],
         "wat voor weer is het?": ["het weer is vandaag wel goed","niet zo goed","kijk toch lekker zelf buiten"],
         "wat is het weer?": ["uhhhh hoe zou ik dat moeten weten","4 uur s middags","kijk toch lekker zelf buiten"],
         "hoe is het weer?": ["uhhhh hoe zou ik dat moeten weten","4 uur s middags","kijk toch lekker zelf buiten"],
