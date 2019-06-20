@@ -148,13 +148,24 @@ if language == "english":
             return phrase
 
     def gevoelens(phrase):
-        pattern = 'im feeling (.*)'
-        pattern2 = 'its going (.*)'
+        pattern = "im feeling (.*)"
+        pattern2 = "its going (.*)"
+        pattern3 = "it's going (.*)"
+        pattern4 = "it is going (.*)"
+        pattern5 = "i'm feeling (.*)"
+        pattern6 = "i am feeling (.*)"        
         
         match = re.search(pattern, phrase)
         if not match:
             match = re.search(pattern2, phrase)
-            
+            if not match:
+                match = re.search(pattern3, phrase)
+                if not match:
+                    match = re.search(pattern4, phrase)
+                    if not match:
+                        match = re.search(pattern5, phrase)
+                        if not match:
+                            match = re.search(pattern6, phrase)
         if match:
             return match.group(1)
         else:
@@ -282,18 +293,19 @@ if language == "dutch":
     print(" ")
     print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
     delay_print("Hoe voel je je " + naam + "?",0.05)
-    print("\n")
+    print(" ")
     color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
-    gevoel = str(input("  "))
+    gevoel = str(input("  ").lower())
     print(" ")
     print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
     delay_print("Waarom voel je je {}?".format(gevoelens(gevoel)),0.05)
-    print("\n")
+    print(" ")
     color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
     input("  ")
     print(" ")
     print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
-    delay_print("Oke, als er ooit iets is wat ik voor je kan doen moet je het zeggen.",0.05)
+    delay_print("Oke, als er ooit iets is wat ik voor je kan doen, dan moet je het zeggen.",0.05)
+    
 if language == "english":
 
     color.write("|||4G                                  " + time.strftime("%H:%M") + "                                60%","BUILTIN")
@@ -310,9 +322,9 @@ if language == "english":
     print(" ")
     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
     delay_print("How are you feeling " + naam + "?",0.05)
-    print("\n")
+    print(" ")
     color.write(time.strftime("%I:%M:%S %p") + ", " + naam + ':',"STRING")
-    gevoel = str(input("  "))
+    gevoel = str(input("  ").lower())
     print(" ")
     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
     delay_print("Why are you feeling {}?".format(gevoelens(gevoel)),0.05)
@@ -320,7 +332,7 @@ if language == "english":
     input("  ")
     print(" ")
     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
-    delay_print("Okay, if there's anything i could help you with you can say it.",0.05)   
+    delay_print("Okay, if there's anything i could help you with, you can say it.",0.05)   
 
 
 
