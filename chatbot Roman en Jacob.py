@@ -30,6 +30,7 @@ def ep():
     time.sleep(0.06)
 
 if language == "dutch":
+    
     def swap_pronouns(phrase):
         if 'ik' in phrase:
             return re.sub('ik', 'jij', phrase)
@@ -43,32 +44,15 @@ if language == "dutch":
         pattern2 = 'het gaat (.*)'
         
         match = re.search(pattern, phrase)
-        match = re.search(pattern2, phrase)
-        if match:
-            return match.group(1)
-        else:
-            return phrase
+        if not match:
+            match = re.search(pattern2, phrase)
             
-if language == "english": 
-    def swap_pronouns(phrase):
-        if 'I' in phrase:
-            return re.sub('I', 'you', phrase)
-        if 'my' in phrase:
-            return re.sub('my', 'your', phrase)
-        else:
-            return phrase
-
-    def gevoelens(phrase):
-        pattern = 'im feeling (.*)'
-        pattern2 = 'its going (.*)'
-        
-        match = re.search(pattern, phrase)
-        match = re.search(pattern2, phrase)
         if match:
             return match.group(1)
         else:
+            phrase = "zo"
             return phrase
-if language == "dutch":
+        
     def naam_begin(name):
         global naam
         letters = 0
@@ -85,7 +69,8 @@ if language == "dutch":
         if letters <= 15:
             print(" ")
             print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
-            delay_print("Ohhh tuurlijk.",0.05)        
+            delay_print("Ohhh tuurlijk.",0.05)
+            
     def tijdprint():
         tijd = time.strftime("%H:%M:%S")
         color.write(tijd,"STRING")
@@ -106,67 +91,7 @@ if language == "dutch":
             color.write(letter,"STRING")
             ep()
         tijdprint()
-if language == "english":
-    def naam_begin(name):
-        global naam
-        letters = 0
-        for char in name:
-            letters+=1
-        if letters >= 15:
-            print(" ")
-            print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
-            delay_print("That looks a little bit too long for me.",0.05)
-            delay_print("Who are you really?",0.05)
-            print(" ")
-            naam = input('')
-            naam_begin(naam)
-        if letters <= 15:
-            print(" ")
-            print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
-            delay_print("Oh ofcourse.",0.05)
-            
-    def tijdprint():
-        tijd = time.strftime("%I:%M:%S %p")
-        color.write(tijd,"STRING")
-        ep()
-        color.write(")","STRING")
-        ep()
         
-    def wacht_gelezen():
-        eerste = "delivered ("
-        tweede = "seen ("
-        for letter in eerste:
-            color.write(letter,"STRING")
-            ep()
-        tijdprint()
-        color.write(", ","STRING")
-        time.sleep(0.4)
-        for letter in tweede:
-            color.write(letter,"STRING")
-            ep()
-        tijdprint()
-        
-def delay_print(string, speed):
-    global beurt
-    drie = 2
-    length = 0
-    for char in string:
-        length += 1
-    if length >= 10:
-        speed = 0.03
-    for char in string:
-        print(char, end='')
-        drie += 1
-        time.sleep(speed)
-        if drie == 3:
-            sound = pyglet.media.load('type.ogg', streaming=False)
-            sound.play()
-            drie = 0
-    print("                 ")
-    beurt = 0
-
-    
-if language == "dutch":    
     def respond(message):
         wacht_gelezen()
         print(" ")
@@ -212,28 +137,69 @@ if language == "dutch":
                 print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                 delay_print(random.choice(NL.responses["statement"]),0.05)
                 
-    color.write("|||4G                                  " + time.strftime("%H:%M") + "                                60%","BUILTIN")
-    color.write("  _____________________________________________________________________________ \n","BUILTIN")
-    color.write("|Spreekbot                                                                    |\n","BUILTIN")
-    color.write("|Tik voor contactinformatie.                                                  |\n","BUILTIN")
-    color.write("|_____________________________________________________________________________|\n","BUILTIN")
-    print(" ")
-    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
-    delay_print("Heb een nieuwe telefoon, wie is dit?",0.05)
-    print(" ")
-    naam= input('')
-    naam_begin(naam)
-    print(" ")
-    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
-    delay_print("Hoe gaat het " + naam + "?",0.05)
-    print("\n")
-    color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
-    gevoel = str(input("  "))
-    print(" ")
-    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
-    delay_print("Waarom voel je je {}?".format(gevoelens(gevoel)),0.05)
-    
 if language == "english":
+    
+    def swap_pronouns(phrase):
+        if 'I' in phrase:
+            return re.sub('I', 'you', phrase)
+        if 'my' in phrase:
+            return re.sub('my', 'your', phrase)
+        else:
+            return phrase
+
+    def gevoelens(phrase):
+        pattern = 'im feeling (.*)'
+        pattern2 = 'its going (.*)'
+        
+        match = re.search(pattern, phrase)
+        if not match:
+            match = re.search(pattern2, phrase)
+            
+        if match:
+            return match.group(1)
+        else:
+            phrase = "that way"
+            return phrase
+
+    def naam_begin(name):
+        global naam
+        letters = 0
+        for char in name:
+            letters+=1
+        if letters >= 15:
+            print(" ")
+            print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+            delay_print("That looks a little bit too long for me.",0.05)
+            delay_print("Who are you really?",0.05)
+            print(" ")
+            naam = input('')
+            naam_begin(naam)
+        if letters <= 15:
+            print(" ")
+            print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+            delay_print("Oh ofcourse.",0.05)
+            
+    def tijdprint():
+        tijd = time.strftime("%I:%M:%S %p")
+        color.write(tijd,"STRING")
+        ep()
+        color.write(")","STRING")
+        ep()
+        
+    def wacht_gelezen():
+        eerste = "delivered ("
+        tweede = "seen ("
+        for letter in eerste:
+            color.write(letter,"STRING")
+            ep()
+        tijdprint()
+        color.write(", ","STRING")
+        time.sleep(0.4)
+        for letter in tweede:
+            color.write(letter,"STRING")
+            ep()
+        tijdprint()
+        
     def respond(message):
         wacht_gelezen()
         print(" ")
@@ -279,7 +245,57 @@ if language == "english":
                 print(" ")
                 print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                 delay_print(random.choice(US.responses["statement"]),0.05)
-                    
+                            
+def delay_print(string, speed):
+    global beurt
+    drie = 2
+    length = 0
+    for char in string:
+        length += 1
+    if length >= 10:
+        speed = 0.03
+    for char in string:
+        print(char, end='')
+        drie += 1
+        time.sleep(speed)
+        if drie == 3:
+            sound = pyglet.media.load('type.ogg', streaming=False)
+            sound.play()
+            drie = 0
+    print("                 ")
+    beurt = 0
+
+    
+if language == "dutch":    
+
+    color.write("|||4G                                  " + time.strftime("%H:%M") + "                                60%","BUILTIN")
+    color.write("  _____________________________________________________________________________ \n","BUILTIN")
+    color.write("|Spreekbot                                                                    |\n","BUILTIN")
+    color.write("|Tik voor contactinformatie.                                                  |\n","BUILTIN")
+    color.write("|_____________________________________________________________________________|\n","BUILTIN")
+    print(" ")
+    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
+    delay_print("Heb een nieuwe telefoon, wie is dit?",0.05)
+    print(" ")
+    naam= input('')
+    naam_begin(naam)
+    print(" ")
+    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
+    delay_print("Hoe voel je je " + naam + "?",0.05)
+    print("\n")
+    color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
+    gevoel = str(input("  "))
+    print(" ")
+    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
+    delay_print("Waarom voel je je {}?".format(gevoelens(gevoel)),0.05)
+    print("\n")
+    color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
+    input("  ")
+    print(" ")
+    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
+    delay_print("Oke, als er ooit iets is wat ik voor je kan doen moet je het zeggen.",0.05)
+if language == "english":
+
     color.write("|||4G                                  " + time.strftime("%H:%M") + "                                60%","BUILTIN")
     color.write("  _____________________________________________________________________________ \n","BUILTIN")
     color.write("|Chatbot                                                                      |\n","BUILTIN")
@@ -293,14 +309,18 @@ if language == "english":
     naam_begin(naam)
     print(" ")
     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
-    delay_print("How are you feeling" + naam + "?",0.05)
+    delay_print("How are you feeling " + naam + "?",0.05)
     print("\n")
-    color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
+    color.write(time.strftime("%I:%M:%S %p") + ", " + naam + ':',"STRING")
     gevoel = str(input("  "))
     print(" ")
     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
     delay_print("Why are you feeling {}?".format(gevoelens(gevoel)),0.05)
-    
+    color.write(time.strftime("%I:%M:%S %p") + ", " + naam + ':',"STRING")
+    input("  ")
+    print(" ")
+    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+    delay_print("Okay, if there's anything i could help you with you can say it.",0.05)   
 
 
 

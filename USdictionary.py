@@ -7,7 +7,7 @@ from termcolor import colored, cprint
 import sys
 import NLdictionary as NL
 responses = {
-        "what is youre name?": ["My name is chatbot."],
+        "what is your name?": ["My name is chatbot."],
         "what is the weather like?": ["The weather is good today.","Not that good","Didn't look, i think it's nice."],
         "how is the weather today?": ["The weather is good today.","Not that good","Didn't look, i think it's nice."],
         "how is the weather?": ["The weather is good today.","Not that good","Didn't look, i think it's nice."],
@@ -27,7 +27,7 @@ responses = {
         "yes": ["No.","Okay."], 
         "how are you?": ["I'm good.","Pretty good.","Not good.","Bad."],
         "how is it going?": ["I'm good.","Pretty good.","Not good.","Bad."],
-        "how is live going?": ["Good.","Fine.","Not great.","Bad."],
+        "how is life going?": ["Good.","Fine.","Not great.","Bad."],
         "thx": ["No problem."],
         "what is the time?": ["It's " + time.strftime("%I:%M:%S %p") + "."],
         "what time is it?": ["It's " + time.strftime("%I:%M:%S %p") + "."],
