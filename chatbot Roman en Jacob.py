@@ -229,7 +229,7 @@ if language == "english":
                 if message.startswith("what are your thoughts on") or message.startswith ("what do you think of") or message.startswith("what is your opinion about") or message.startswith("What is your opinion on"):
                     print(" ")
                     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
-                    delay_print(random.choice(US.responses["meaning"]),0.05)
+                    delay_print(random.choice(US.responses["opinion"]),0.05)
                 if message.startswith("are") or message.startswith("can") or message.startswith("do you like") or message.startswith("Do you want") or message.startswith("do") or message.startswith("is it going") or message.startswith("do you have") or message.startswith("is"):
                     print(" ")
                     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
