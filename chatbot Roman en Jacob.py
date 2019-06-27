@@ -140,12 +140,15 @@ if language == "dutch":
 if language == "english":
     
     def swap_pronouns(phrase):
-        if 'I' in phrase:
-            return re.sub('I', 'you', phrase)
+        if 'i' in phrase:
+            phrase = re.sub('i', 'you', phrase)
+        if 'am' in phrase:
+            phrase = re.sub('am', 'are', phrase)
+        if "i'm" in phrase:
+            phrase = re.sub("i'm", "you're", phrase)
         if 'my' in phrase:
-            return re.sub('my', 'your', phrase)
-        else:
-            return phrase
+            phrase = re.sub('my', 'your', phrase)
+        return phrase
 
     def gevoelens(phrase):
         pattern = "im feeling (.*)"
@@ -253,9 +256,15 @@ if language == "english":
                 delay_print(random.choice(US.responses[message]),0.000)
         if not message.endswith("?"):
             if not message in US.responses:
-                print(" ")
-                print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
-                delay_print(random.choice(US.responses["statement"]),0.05)
+                if message.startswith("i am") or message.startswith("my") or message.startswith("im") or message.startswith("i'm"):
+                    print(" ")
+                    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+                    delay_print(swap_pronouns(message).capitalize() + "?",0.05)
+                    
+                else:
+                    print(" ")
+                    print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+                    delay_print(random.choice(US.responses["statement"]),0.05)
                             
 def delay_print(string, speed):
     global beurt
