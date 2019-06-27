@@ -270,7 +270,7 @@ if language == "english":
                 delay_print(random.choice(US.responses[message]),0.000)
         if not message.endswith("?"):
             if not message in US.responses:
-                if message.startswith("i am") or message.startswith("my") or message.startswith("im") or message.startswith("i'm"):
+                if message.startswith("i am") or message.startswith("my") or message.startswith("im") or message.startswith("i'm") or message.startswith("i feel"):
                     print(" ")
                     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                     delay_print(swap_pronouns(message).capitalize() + "?",0.05)
