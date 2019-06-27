@@ -32,16 +32,16 @@ def ep():
 if language == "dutch":
     
     def swap_pronouns(phrase):
-        if 'ik' in phrase:
-            phrase = re.sub('ik', 'jij', phrase)
-        if 'ben' in phrase:
-            phrase = re.sub('ben', 'bent', phrase)
-        if "voel" in phrase:
-            phrase = re.sub("voel", "voelt", phrase)
-        if 'mijn' in phrase:
-            phrase = re.sub('mijn', 'jouw', phrase)
-        if 'mij' in phrase:
-            phrase = re.sub('mij', 'je', phrase)
+        if 'ik ' in phrase:
+            phrase = re.sub('ik ', 'jij ', phrase)
+        if 'ben ' in phrase:
+            phrase = re.sub('ben ', 'bent ', phrase)
+        if "voel " in phrase:
+            phrase = re.sub("voel ", "voelt ", phrase)
+        if 'mijn ' in phrase:
+            phrase = re.sub('mijn ', 'jouw ', phrase)
+        if 'mij ' in phrase:
+            phrase = re.sub('mij ', 'je ', phrase)
         return phrase
 
 
@@ -154,14 +154,14 @@ if language == "dutch":
 if language == "english":
     
     def swap_pronouns(phrase):
-        if 'i' in phrase:
-            phrase = re.sub('i', 'you', phrase)
-        if 'am' in phrase:
-            phrase = re.sub('am', 'are', phrase)
-        if "i'm" in phrase:
-            phrase = re.sub("i'm", "you're", phrase)
-        if 'my' in phrase:
-            phrase = re.sub('my', 'your', phrase)
+        if 'i ' in phrase:
+            phrase = re.sub('i ', 'you ', phrase)
+        if 'am ' in phrase:
+            phrase = re.sub('am ', 'are ', phrase)
+        if "i'm " in phrase:
+            phrase = re.sub("i'm ", "you're ", phrase)
+        if 'my ' in phrase:
+            phrase = re.sub('my ', 'your ', phrase)
         return phrase
 
     def gevoelens(phrase):
