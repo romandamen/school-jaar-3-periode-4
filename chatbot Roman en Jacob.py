@@ -33,11 +33,18 @@ if language == "dutch":
     
     def swap_pronouns(phrase):
         if 'ik' in phrase:
-            return re.sub('ik', 'jij', phrase)
+            phrase = re.sub('ik', 'jij', phrase)
+        if 'ben' in phrase:
+            phrase = re.sub('ben', 'bent', phrase)
+        if "voel" in phrase:
+            phrase = re.sub("voel", "voelt", phrase)
         if 'mijn' in phrase:
-            return re.sub('mijn', 'jouw', phrase)
-        else:
-            return phrase
+            phrase = re.sub('mijn', 'jouw', phrase)
+        if 'mij' in phrase:
+            phrase = re.sub('mij', 'je', phrase)
+        return phrase
+
+
         
     def gevoelens(phrase):
         pattern = 'ik voel mij (.*)'
@@ -133,9 +140,16 @@ if language == "dutch":
                 delay_print(random.choice(NL.responses[message]),0.000)
         if not message.endswith("?"):
             if not message in NL.responses:
-                print(" ")
-                print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
-                delay_print(random.choice(NL.responses["statement"]),0.05)
+                
+                if message.startswith("ik ben") or message.startswith("mijn") or message.startswith("ik voel"):
+                    print(" ")
+                    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
+                    delay_print(swap_pronouns(message).capitalize() + "?",0.05)
+                    
+                else:
+                    print(" ")
+                    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
+                    delay_print(random.choice(NL.responses["statement"]),0.05)
                 
 if language == "english":
     
