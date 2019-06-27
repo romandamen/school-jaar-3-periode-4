@@ -17,7 +17,7 @@ else:
     if language == "dutch" or language == "english":
         print("\n")
     else:
-        print("i can't speak that language.")
+        print("I can't speak that language.")
         language = input("Which language do you speak: dutch or english? \n").lower()
 
 
