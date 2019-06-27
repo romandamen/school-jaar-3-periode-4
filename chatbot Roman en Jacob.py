@@ -105,10 +105,10 @@ if language == "dutch":
         global naam
         if message.endswith("?"):
             if not message in NL.responses:
-                if message.startswith("waarom?"):
+                if message.startswith("waarom"):
                     print(" ")
                     print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
-                    delay_print("gewoon",0.05)
+                    delay_print("Dat weet ik niet.",0.05)
                 if message.startswith("hoeveel procent"):
                     pass
                     #E= random.randint(0, 100)
@@ -235,10 +235,10 @@ if language == "english":
         
         if message.endswith("?"):
             if not message in US.responses:
-                if message.startswith("why?"):
+                if message.startswith("why"):
                     print(" ")
                     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
-                    delay_print("Not really a reason.",0.05)
+                    delay_print("I don't know.",0.05)
                 if message.startswith("what percentage"):
                     pass
                     #E= random.randint(0, 100)
