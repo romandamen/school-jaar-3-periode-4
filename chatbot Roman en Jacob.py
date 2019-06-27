@@ -8,17 +8,17 @@ import NLdictionary as NL
 import USdictionary as US
 import re
 
-language = input("Which language do you speak: dutch or english? \n".lower())
+language = input("Which language do you speak: dutch or english? \n").lower()
 if language == "dutch" or language == "english":
     print("\n")
 else:
     print("I can't speak that language.")
-    language = input("Which language do you speak: dutch or english? \n".lower())
+    language = input("Which language do you speak: dutch or english? \n").lower()
     if language == "dutch" or language == "english":
         print("\n")
     else:
         print("i can't speak that language.")
-        language = input("Which language do you speak: dutch or english? \n".lower())
+        language = input("Which language do you speak: dutch or english? \n").lower()
 
 
 
