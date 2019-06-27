@@ -8,17 +8,17 @@ import NLdictionary as NL
 import USdictionary as US
 import re
 
-language = input("Which language do you speak: dutch or english? \n")
+language = input("Which language do you speak: dutch or english? \n".lower())
 if language == "dutch" or language == "english":
     print("\n")
 else:
     print("I can't speak that language.")
-    language = input("Which language do you speak: dutch or english? \n")
+    language = input("Which language do you speak: dutch or english? \n".lower())
     if language == "dutch" or language == "english":
         print("\n")
     else:
         print("i can't speak that language.")
-        language = input("Which language do you speak: dutch or english? \n")
+        language = input("Which language do you speak: dutch or english? \n".lower())
 
 
 
@@ -345,6 +345,15 @@ while True:
             antwoord = input(' ').lower()
             if antwoord.endswith('.'):
                 antwoord = antwoord[:-1]
+            if antwoord.endswith('.'):
+                antwoord = antwoord[:-1]
+            if antwoord.endswith('.'):
+                antwoord = antwoord[:-1]
+            if antwoord.endswith('.'):
+                antwoord = antwoord[:-1]
+            if antwoord.endswith('.'):
+                antwoord = antwoord[:-1]
+            
             respond(antwoord)
             
     if language == "english":
@@ -353,6 +362,14 @@ while True:
             print(" ")
             color.write(time.strftime("%I:%M:%S %p") + ", " + naam + ':',"STRING")
             antwoord = input(' ').lower()
+            if antwoord.endswith('.'):
+                antwoord = antwoord[:-1]
+            if antwoord.endswith('.'):
+                antwoord = antwoord[:-1]
+            if antwoord.endswith('.'):
+                antwoord = antwoord[:-1]
+            if antwoord.endswith('.'):
+                antwoord = antwoord[:-1]
             if antwoord.endswith('.'):
                 antwoord = antwoord[:-1]
             respond(antwoord)
