@@ -231,10 +231,6 @@ if language == "english":
                     print(" ")
                     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                     delay_print("I don't know.",0.05)
-                if message.startswith("what percentage"):
-                    pass
-                    #E= random.randint(0, 100)
-                    #delay_print(time.strftime("%I:%M:%S %p") + ", " + "Spreekbot:" + ,0.05)
                 if message.startswith("what are your thoughts on") or message.startswith ("what do you think of") or message.startswith("what is your opinion about") or message.startswith("What is your opinion on"):
                     print(" ")
                     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
@@ -244,13 +240,10 @@ if language == "english":
                     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                     delay_print(random.choice(US.responses["closed"]),0.05)    
                 else:
-                    if message.startswith("what do you think of") or message.startswith("what is your opinion about"):
-                        pass
-                    else:
-                        if not message.startswith('why'):
-                            print(" ")
-                            print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
-                            delay_print(random.choice(US.responses["question"]),0.05)
+                    if not message.startswith('why'):
+                        print(" ")
+                        print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
+                        delay_print(random.choice(US.responses["question"]),0.05)
         if message in US.responses:
             if not message == "matrix":
                 print(" ")
