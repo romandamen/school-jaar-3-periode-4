@@ -6,6 +6,8 @@ from termcolor import colored, cprint
 import NLdictionary as NL
 import USdictionary as US
 import re
+from googletrans import Translator
+
 
 language = input("Which language do you speak: dutch or english? \n").lower()
 if language == "dutch" or language == "english":
@@ -29,7 +31,42 @@ def ep():
     time.sleep(0.06)
 
 if language == "dutch":
-    
+
+    def translate(phrase):
+        print("\n")
+        text = input("Welke zin wil je vertalen?\n")
+
+        languagetrans = input("Naar welke taal?\n").capitalize()
+
+        destination_languages = {
+            'Spaans': 'es',
+            'Chinees': 'zh-CN',
+            'Italiaans': 'it',
+            'Hindi': 'hi',
+            'Mongools': 'mn',
+            'Russisch': 'ru',
+            'Ukraïens': 'uk',
+            'Frans': 'fr',
+            'Indonesisch': 'id',
+            'Japans': 'ja',
+            'Slowakijns': 'sk'
+        }
+
+        if languagetrans in destination_languages:
+            print("ok\n")
+        else:
+            print("Ik kan die taal niet spreken.\n")
+            languagetrans = input("Naar welke taal?\n").capitalize()
+            if languagetrans in destination_languages:
+                print("ok\n")
+            else:
+                print("Ik kan die taal niet spreken.\n")
+                languagetrans = input("naar welke taal?\n").capitalize()
+
+        translator = Translator()
+
+        print(translator.translate(text, dest=destination_languages[languagetrans]).text)
+
     def swap_pronouns(phrase):
         if 'ik ' in phrase:
             phrase = re.sub('ik ', 'jij ', phrase)
@@ -134,8 +171,9 @@ if language == "dutch":
                 delay_print(random.choice(NL.responses[message]),0.000)
         if not message.endswith("?"):
             if not message in NL.responses:
-                
-                if message.startswith("ik ben") or message.startswith("mijn") or message.startswith("ik voel"):
+                if message == "vertaal":
+                    translate(message)
+                elif message.startswith("ik ben") or message.startswith("mijn") or message.startswith("ik voel"):
                     print(" ")
                     print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                     delay_print(swap_pronouns(message).capitalize() + "?",0.05)
@@ -146,7 +184,40 @@ if language == "dutch":
                     delay_print(random.choice(NL.responses["statement"]),0.05)
                 
 if language == "english":
-    
+    def translate(phrase):
+        print("\n")
+        text = input("What do you want to translate?\n")
+
+        languagetrans = input("To what language do you want to translate it?\n").capitalize()
+
+        destination_languages = {
+            'Spanish': 'es',
+            'Chinese': 'zh-CN',
+            'Italian': 'it',
+            'Hindi': 'hi',
+            'Mongolian': 'mn',
+            'Russian': 'ru',
+            'Ukrainian': 'uk',
+            'French': 'fr',
+            'Indonesian': 'id',
+            'Japanese': 'ja',
+            'Slovak': 'sk'
+        }
+
+        if languagetrans in destination_languages:
+            print("ok\n")
+        else:
+            print("I dont speak that language.\n")
+            languagetrans = input("To what language do you want to translate it?\n").capitalize()
+            if languagetrans in destination_languages:
+                print("ok\n")
+            else:
+                print("I dont speak that language.\n")
+                languagetrans = input("To what language do you want to translate it?\n").capitalize()
+
+        translator = Translator()
+
+        print(translator.translate(text, dest=destination_languages[languagetrans]).text)
     def swap_pronouns(phrase):
         if 'i ' in phrase:
             phrase = re.sub('i ', 'you ', phrase)
@@ -259,7 +330,9 @@ if language == "english":
                 delay_print(random.choice(US.responses[message]),0.000)
         if not message.endswith("?"):
             if not message in US.responses:
-                if message.startswith("i am") or message.startswith("my") or message.startswith("im") or message.startswith("i'm") or message.startswith("i feel"):
+                if message == "translate":
+                    translate(message)
+                elif message.startswith("i am") or message.startswith("my") or message.startswith("im") or message.startswith("i'm") or message.startswith("i feel"):
                     print(" ")
                     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                     delay_print(swap_pronouns(message).capitalize() + "?",0.05)
