@@ -117,7 +117,9 @@ if language == "dutch":
                     print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                     delay_print(random.choice(NL.responses["gesloten"]),0.05)    
                 else:
-                    if not message.startswith('waarom'):
+                    if message.startswith("wat vind je van") or message.startswith ("wat vind jij van") or message.startswith("wat is jouw mening over"):
+                        pass
+                    elif not message.startswith('waarom'):
                         print(" ")
                         print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                         delay_print(random.choice(NL.responses["question"]),0.05)
@@ -240,7 +242,9 @@ if language == "english":
                     print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                     delay_print(random.choice(US.responses["closed"]),0.05)    
                 else:
-                    if not message.startswith('why'):
+                    if message.startswith("what are your thoughts on") or message.startswith ("what do you think of") or message.startswith("what is your opinion about") or message.startswith("What is your opinion on"):
+                        pass
+                    elif not message.startswith('why'):
                         print(" ")
                         print(time.strftime("%I:%M:%S %p") + ", " + "Chatbot")
                         delay_print(random.choice(US.responses["question"]),0.05)
