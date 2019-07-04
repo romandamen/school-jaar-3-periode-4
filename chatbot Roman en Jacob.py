@@ -3,7 +3,6 @@ import time
 import random
 import pyglet
 from termcolor import colored, cprint
-import sys
 import NLdictionary as NL
 import USdictionary as US
 import re
@@ -24,7 +23,7 @@ else:
 
 try: color = sys.stdout.shell
 except AttributeError: raise RuntimeError("Use IDLE")
-beurt = 0
+
 
 def ep():
     time.sleep(0.06)
@@ -109,10 +108,6 @@ if language == "dutch":
                     print(" ")
                     print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                     delay_print("Dat weet ik niet.",0.05)
-                if message.startswith("hoeveel procent"):
-                    pass
-                    #E= random.randint(0, 100)
-                    #delay_print(time.strftime("%H:%M:%S") + ", " + "spreekbot:" + ,0.05)
                 if message.startswith("wat vind je van") or message.startswith ("wat vind jij van") or message.startswith("wat is jouw mening over"):
                     print(" ")
                     print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
@@ -122,13 +117,10 @@ if language == "dutch":
                     print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
                     delay_print(random.choice(NL.responses["gesloten"]),0.05)    
                 else:
-                    if message.startswith("wat vind je van") or message.startswith ("wat vind jij van") or message.startswith("wat is jouw mening over"):
-                        pass
-                    else:
-                        if not message.startswith('waarom'):
-                            print(" ")
-                            print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
-                            delay_print(random.choice(NL.responses["question"]),0.05)
+                    if not message.startswith('waarom'):
+                        print(" ")
+                        print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
+                        delay_print(random.choice(NL.responses["question"]),0.05)
         if message in NL.responses:
             if not message == "matrix":
                 print(" ")
@@ -281,7 +273,6 @@ if language == "english":
                     delay_print(random.choice(US.responses["statement"]),0.05)
                             
 def delay_print(string, speed):
-    global beurt
     drie = 2
     length = 0
     for char in string:
@@ -297,7 +288,6 @@ def delay_print(string, speed):
             sound.play()
             drie = 0
     print("                 ")
-    beurt = 0
 
     
 if language == "dutch":    
@@ -361,38 +351,33 @@ if language == "english":
 
 while True:
     if language == "dutch":
-        if beurt == 0:
-            beurt = 1
-            print(" ")
-            color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
-            antwoord = input(' ').lower()
-            if antwoord.endswith('.'):
-                antwoord = antwoord[:-1]
-            if antwoord.endswith('.'):
-                antwoord = antwoord[:-1]
-            if antwoord.endswith('.'):
-                antwoord = antwoord[:-1]
-            if antwoord.endswith('.'):
-                antwoord = antwoord[:-1]
-            if antwoord.endswith('.'):
-                antwoord = antwoord[:-1]
-            
-            respond(antwoord)
+        print(" ")
+        color.write(time.strftime("%H:%M:%S") + ", " + naam + ':',"STRING")
+        antwoord = input(' ').lower()
+        if antwoord.endswith('.'):
+            antwoord = antwoord[:-1]
+        if antwoord.endswith('.'):
+            antwoord = antwoord[:-1]
+        if antwoord.endswith('.'):
+            antwoord = antwoord[:-1]
+        if antwoord.endswith('.'):
+            antwoord = antwoord[:-1]
+        if antwoord.endswith('.'):
+            antwoord = antwoord[:-1]
+        respond(antwoord)
             
     if language == "english":
-        if beurt == 0:
-            beurt = 1
-            print(" ")
-            color.write(time.strftime("%I:%M:%S %p") + ", " + naam + ':',"STRING")
-            antwoord = input(' ').lower()
-            if antwoord.endswith('.'):
-                antwoord = antwoord[:-1]
-            if antwoord.endswith('.'):
-                antwoord = antwoord[:-1]
-            if antwoord.endswith('.'):
-                antwoord = antwoord[:-1]
-            if antwoord.endswith('.'):
-                antwoord = antwoord[:-1]
-            if antwoord.endswith('.'):
-                antwoord = antwoord[:-1]
-            respond(antwoord)
+        print(" ")
+        color.write(time.strftime("%I:%M:%S %p") + ", " + naam + ':',"STRING")
+        antwoord = input(' ').lower()
+        if antwoord.endswith('.'):
+            antwoord = antwoord[:-1]
+        if antwoord.endswith('.'):
+            antwoord = antwoord[:-1]
+        if antwoord.endswith('.'):
+            antwoord = antwoord[:-1]
+        if antwoord.endswith('.'):
+            antwoord = antwoord[:-1]
+        if antwoord.endswith('.'):
+            antwoord = antwoord[:-1]
+        respond(antwoord)
