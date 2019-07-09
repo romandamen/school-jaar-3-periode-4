@@ -2,7 +2,7 @@ from googletrans import Translator
 
 text = input("What do you want to translate?\n")
 
-language = input("To what language do you want to translate it?\n").capitalize()
+languagetrans = input("To what language do you want to translate it?\n").capitalize()
 
 destination_languages = {
     'Spanish': 'es',
@@ -18,17 +18,17 @@ destination_languages = {
     'Slovak': 'sk'
 }
 
-if language in destination_languages:
+if languagetrans in destination_languages:
     print("ok\n")
 else:
     print("I dont speak that language.\n")
-    language = input("To what language do you want to translate it?\n").capitalize()
-    if language in destination_languages:
+    languagetrans = input("To what language do you want to translate it?\n").capitalize()
+    if languagetrans in destination_languages:
         print("ok\n")
     else:
         print("I dont speak that language.\n")
-        language = input("To what language do you want to translate it?\n").capitalize()
+        languagetrans = input("To what language do you want to translate it?\n").capitalize()
 
 translator = Translator()
 
-print(translator.translate(text, dest=destination_languages[language]).text)
+print(translator.translate(text, dest=destination_languages[languagetrans]).text)
