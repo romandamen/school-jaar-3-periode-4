@@ -6,8 +6,17 @@ from termcolor import colored, cprint
 import NLdictionary as NL
 import USdictionary as US
 import re
+import pymysql
 from googletrans import Translator
 
+connection = pymysql.connect(host="localhost",user="root",passwd="",database="chatman" )
+cursor = connection.cursor()
+
+invoegen = "INSERT INTO gebruiker(voornaam, achternaam, geboortedatum) VALUES('Roman', 'Damen', '2017-06-15');"
+
+cursor.execute(invoegen)
+connection.commit()
+connection.close()
 
 language = input("Which language do you speak: dutch or english? \n").lower()
 if language == "dutch" or language == "english":
