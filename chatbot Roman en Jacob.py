@@ -8,15 +8,62 @@ import USdictionary as US
 import re
 import pymysql
 from googletrans import Translator
+import bcrypt
 
+
+print("connecting", end='')
+time.sleep(0.7)
+print(".", end='');time.sleep(0.7);print(".", end='');time.sleep(0.6);print(".", end='');time.sleep(0.6);print(".", end='');time.sleep(0.5);print(".", end='');time.sleep(0.5);print(".", end='');time.sleep(0.4);print(".", end='');time.sleep(0.4);print(".", end='');time.sleep(0.3);print(".", end='');time.sleep(0.3);print(".", end='');time.sleep(0.2);print(".", end='');time.sleep(0.2);print(".", end='');time.sleep(0.1);print(".", end='');time.sleep(0.1);print(".", end='');time.sleep(0.05);print(".", end='');time.sleep(0.05);print(".", end='');time.sleep(0.05);print(".", end='');time.sleep(0.05);print(".", end='');time.sleep(0.05);print(".", end='');time.sleep(0.01);print(".", end='');time.sleep(0.01);print(".", end='');time.sleep(0.01);print(".", end='');time.sleep(0.01);print(".", end='');time.sleep(0.01);print(".", end='');time.sleep(0.01);print("o", end='');time.sleep(0.01);print("o", end='');time.sleep(0.01);print("o", end='');time.sleep(0.01);print("o", end='')
+for i in range(0,1000,1):
+    i= random.randint(0,1)
+    print(i, end='')
+    
 connection = pymysql.connect(host="localhost",user="root",passwd="",database="chatman" )
 cursor = connection.cursor()
+time.sleep(0.1);print("y", end='');time.sleep(0.1);print("o", end='');time.sleep(0.1);print("u", end='');time.sleep(0.1);print(" ", end='');time.sleep(0.1);print("a", end='');time.sleep(0.1);print("r", end='');time.sleep(0.1);print("e", end='');time.sleep(0.1);print(" ", end='');time.sleep(0.1);print("c", end='');time.sleep(0.1);print("o", end='');time.sleep(0.1);print("n", end='');time.sleep(0.1);print("n", end='');time.sleep(0.1);print("e", end='');time.sleep(0.1);print("c", end='');time.sleep(0.1);print("t", end='');time.sleep(0.1);print("e", end='');time.sleep(0.1);print("d", end='')
+print( )
 
-invoegen = "INSERT INTO gebruiker(voornaam, achternaam, geboortedatum) VALUES('Roman', 'Damen', '2017-06-15');"
 
-cursor.execute(invoegen)
-connection.commit()
+
+
+
+
+def hash_wachtwoord(wachtwoord):
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(6))
+
+
+bestaand=0
+naam=str(input("username:").capitalize())
+
+cursor.execute("SELECT * FROM gebruiker WHERE gebruikersnaam=%s",(naam))
+data="error"
+for i in cursor:
+    data=i
+if data=="error":
+    print("")
+else:
+    keuze=input("User already exist, login? y/n")
+    bestaand=1
+
+if bestaand==0:
+    geboortedatum=str(input("born(JJJJ-MM-DD):"))
+    password=str(input("super secret password:"))
+    hashed = hash_wachtwoord(password)
+
+    cursor.execute("""INSERT INTO gebruiker (gebruikersnaam, geboortedatum, wachtwoord) VALUES (%s,%s,%s)""", (naam, geboortedatum, hashed))
+    connection.commit()
+if bestaand==1:
+    if keuze=="y":
+        password=str(input("super secret password:"))
+        print("password matches")
+    else: naam="niet ingelogd"          
 connection.close()
+
+
+
+
+
+
 
 language = input("Which language do you speak: dutch or english? \n").lower()
 if language == "dutch" or language == "english":
@@ -105,24 +152,6 @@ if language == "dutch":
             phrase = "zo"
             return phrase
         
-    def naam_begin(name):
-        global naam
-        letters = 0
-        for char in name:
-            letters+=1
-        if letters >= 15:
-            print(" ")
-            print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
-            delay_print("Dat lijkt mij een beetje lang.",0.05)
-            delay_print("Wie ben je echt?",0.05)
-            print(" ")
-            naam = input('')
-            naam_begin(naam)
-        if letters <= 15:
-            print(" ")
-            print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
-            delay_print("Ohhh tuurlijk.",0.05)
-            
     def tijdprint():
         tijd = time.strftime("%H:%M:%S")
         color.write(tijd,"STRING")
@@ -376,12 +405,6 @@ if language == "dutch":
     color.write("|Spreekbot                                                                    |\n","BUILTIN")
     color.write("|Tik voor contactinformatie.                                                  |\n","BUILTIN")
     color.write("|_____________________________________________________________________________|\n","BUILTIN")
-    print(" ")
-    print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
-    delay_print("Heb een nieuwe telefoon, wie is dit?",0.05)
-    print(" ")
-    naam= input('')
-    naam_begin(naam)
     print(" ")
     print(time.strftime("%H:%M:%S") + ", " + "Spreekbot")
     delay_print("Hoe voel je je " + naam + "?",0.05)
